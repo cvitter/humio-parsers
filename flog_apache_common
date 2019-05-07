@@ -1,6 +1,6 @@
 // Parses the "Apache Common" format created by Flog (https://github.com/mingrammer/flog)
 
-/(?<client>\S+)\s+-\s+(?<userid>\S+)\s+(?<unknnumber>\S+)\s+\[(?<@timestamp>.*)\]\s+"((?<method>\S+)\s+(?<url>\S+))"\s+(?<statuscode>\d+)\s+(?<responsesize>\S+)/
+/(?<client>\S+)\s+-\s+(?<userid>\S+)\s+(?<requestsize>\S+)\s+\[(?<@timestamp>.*)\]\s+"((?<method>\S+)\s+(?<url>\S+)?(\s+)?(?<referrer>\S+)?|)"\s+(?<statuscode>\d+)\s+(?<responsesize>\S+)/
 | parseTimestamp(format="yyyy-MM-dd'T'HH:mm:ssz", field=@timestamp)
 
 // Test records
