@@ -1,0 +1,11 @@
+// Parses the "Apache Common" format created by Flog (https://github.com/mingrammer/flog)
+
+/(?<client>\S+)\s+-\s+(?<userid>\S+)\s+(?<unknnumber>\S+)\s+\[(?<@timestamp>.*)\]\s+"((?<method>\S+)\s+(?<url>\S+))"\s+(?<statuscode>\d+)\s+(?<responsesize>\S+)/
+| parseTimestamp(format="yyyy-MM-dd'T'HH:mm:ssz", field=@timestamp)
+
+// Test records
+// 173.206.188.59 - Adams8511 86 [2019-05-07T08:35:02+02:00] "DELETE /paradigms/proactive/revolutionize" 100 2146
+// 131.49.57.193 - Lehner5572 595 [2019-05-07T08:35:02+02:00] "DELETE /web services/implement/empower" 403 13659
+// 158.224.243.45 - Kutch2070 358 [2019-05-07T08:35:02+02:00] "PUT /integrate/plug-and-play" 403 2813
+// 240.159.67.235 - Kutch8401 186 [2019-05-07T08:35:02+02:00] "PATCH /transparent/architect/evolve" 302 8689
+// 242.131.32.181 - Christiansen4441 589 [2019-05-07T08:35:02+02:00] "GET /innovative/transform" 500 772
