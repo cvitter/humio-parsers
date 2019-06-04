@@ -1,0 +1,5 @@
+parseJson(field=@rawstring) |
+case {
+  issue.state = "CLOSED" | @timestamp := issue.end;
+  @timestamp := issue.start
+}
