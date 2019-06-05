@@ -1,0 +1,10 @@
+// 
+
+/(?<@timestamp>\S+\s+\S+\s+\S+\s+\S+)\s+(?<host>[^\<]+)\S(?<priority>[^\>]+)\S\s(?<app>[^\s\[:]+)?(\[(?<pid>[^\]]+)\])?:\s+(?<message>.*)/ | 
+parseTimestamp("MMM [ ]d HH:mm:ss yyyy", field=@timestamp, timezone="UTC")
+
+// Test Records
+// Apr 18 08:48:31 2018 uucp.debug<71> System: BHR4 time change event
+// May 29 03:59:22 2019 local1.info<142> IGMP: maximum join latency 2605 milliseconds, minimum join latency 34 milliseconds, average join latency 1002 milliseconds 
+// May 29 05:37:40 2019 local1.err<139> named[1783]: zone 1.168.192.in-addr.arpa/IN/internal-clients: zone serial (2008122601) unchanged. zone may fail to transfer to slaves.
+// May 29 05:58:39 2019 local1.err<139> named[1783]: zone fios-router.home/IN/internal-clients: zone serial (2008122601) unchanged. zone may fail to transfer to slaves.
