@@ -1,6 +1,6 @@
 // Parses the Syslog format output by Verizon FIOS's router
 
-/(?<@timestamp>\S+\s+\S+\s+\S+\s+\S+)\s+(?<host>[^\<]+)\S(?<priority>[^\>]+)\S\s(?<app>[^\s\[:]+)?(\[(?<pid>[^\]]+)\])?:\s+(?<message>.*)/ | 
+/(?<@timestamp>\S+\s+\S+\s+\S+\s+\S+)\s+(?<event-type>[^\<]+)\S(?<event-level>[^\>]+)\S\s(?<log-level>[^\s\[:]+)?(\[(?<log-number>[^\]]+)\])?:\s+(?<details>.*)/ | 
 parseTimestamp("MMM [ ]d HH:mm:ss yyyy", field=@timestamp, timezone="UTC")
 
 // Test Records
