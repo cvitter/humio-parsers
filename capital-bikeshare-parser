@@ -1,0 +1,9 @@
+// Parser for Capital Bikeshare system data (https://www.capitalbikeshare.com/system-data)
+parseCsv(@rawstring, columns=["duration","start_date","end_date","start_station_no","end_station_no","start_station","end_station","bike_number","member_type"]) | 
+@timestamp := parseTimestamp("yyyy-MM-dd HH:mm:ss", field=start_date, timezone="UTC")
+
+// Test Records
+// 155,"2019-04-01 05:03:42","2019-04-01 05:06:18",31628,"1st & K St SE",31634,"3rd & Tingey St SE",78126,"Member"
+// 563,"2019-04-01 04:35:47","2019-04-01 04:45:11",31651,"11th & Park Rd NW",31283,"14th & L St NW","W01497","Member"
+// 128,"2019-04-01 01:27:46","2019-04-01 01:29:54",31228,"8th & H St NW",31653,"7th & K St NW","W20376","Member"
+// 313,"2019-04-01 00:03:03","2019-04-01 00:08:16",31618,"4th & East Capitol St NE",31630,"15th & East Capitol St NE","W24063","Member"
