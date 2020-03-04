@@ -1,1 +1,8 @@
 // Parser for HAProxy logs
+/^(?<syslog_time>[^ ]* +[^ ]* +[^ ]*) (?<frontend>[\w-\.]+) (?<ps>\w+)\[(?<pid>\d+)\]: (?<client-ip>[^\s]+) \[(?<timestamp>.*)\] (?<backend1>[^\s]+) (?<backend2>[^\s]+) (?<backend3>[^\s]+) (?<statuscode>[^\s]+) (?<bytesread>[^\s]+) (?<unk1>[^\s]+) (?<unk2>[^\s]+) (?<unk3>[^\s]+) (?<unk4>[^\s]+) (?<unk5>[^\s]+) {(?<hosturlagent>.+?)} {(?<contenttype>.+?)} "(?<requestmethod>[^\s]+) (?<path>[^\s]+) (?<protocol>.+?)"/ 
+
+| splitString(field=hosturlagent, by="[|]", index=0, as=hostname)
+| splitString(field=hosturlagent, by="[|]", index=1, as=url)
+| splitString(field=hosturlagent, by="[|]", index=2, as=useragent)
+
+| @timestamp := parseTimestamp("dd/MMM/yyyy:HH:mm:ss.SSS", field=timestamp, timezone="CET")
